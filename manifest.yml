@@ -1,0 +1,4 @@
+apps:
+- name: komputasiawan
+  random-route: true
+  memory: 256M
