@@ -1,6 +1,6 @@
 <?php 
 try { 
-    $pdo_conn = new PDO('mysql:host=sql6.freemysqlhosting.net:3306;dbname=sql6451167', 'sql6451167', 'SLzCyKMvYR',
+    $pdo_conn = new PDO('mysql:host=remotemysql.com:3306;dbname=v0p9UyNpxs', 'v0p9UyNpxs', 'zO2Q5GwKl6',
     array(PDO::ATTR_PERSISTENT => true)); 
 } 
 catch(PDOException $e) { echo $e->getMessage(); 
