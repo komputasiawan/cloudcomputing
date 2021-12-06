@@ -1,6 +1,14 @@
 <?php
 session_name("verify");
 session_start();
+if(isset($_SESSION['login_user'])){
+    $userlogin = $_SESSION['login_user'];
+    if ($userlogin != "admin")
+    {
+        header("location: ../masukuser.php");
+    }
+}
+
 if (isset($_SESSION['login_user']) == '')
 {
 	header("location: formloginadmin.php");
@@ -94,7 +102,7 @@ a,a:hover,a:visited,a:active{
                         <input type="text" name="deskripsi" required value="<?php echo $result[0]['deskripsi']; ?>" />
                     </div>
                     <div class="form-group">
-                        <small style="align: left; color:grey;">Tambahkan Foto Mobil</small><br><br>
+                        <small style=" color:grey;">Tambahkan Foto Mobil</small><br><br>
                         <input type="file" name="foto" required value="<?php echo $result[0]['foto']; ?> " />
                     </div>
                         <input type="submit" class="btn btn-block btn-custom-pink" value="UBAH" name="editmobil"/>

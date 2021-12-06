@@ -18,7 +18,9 @@ if(empty($row['username']))
 else 
 {
     $_SESSION['login_user'] = $_POST['userlog'];
-    $_SESSION['level_user'] = $row['level'];
+    echo $_SESSION['login_user'];
+    $_SESSION['id_user'] = $row['id_admin'];
+    echo $_SESSION['id_user'];
     header("location: masukadmin.php");
 }
 }

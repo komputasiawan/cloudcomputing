@@ -1,4 +1,18 @@
 <?php
+session_name("verify");
+session_start();
+if(isset($_SESSION['login_user'])){
+    $userlogin = $_SESSION['login_user'];
+    if ($userlogin != "admin")
+    {
+        header("location: ../masukuser.php");
+    }
+}
+
+if (isset($_SESSION['login_user']) == '')
+{
+	header("location: formloginadmin.php");
+}
     if(!empty($_POST["tambahmobil"])) {
         require_once("../koneksi.php");
 

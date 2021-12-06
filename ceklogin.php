@@ -18,7 +18,11 @@ if(empty($row['username_penyewa']))
 else 
 {
     $_SESSION['login_user'] = $_POST['userlog'];
-    $_SESSION['level_user'] = $row['level'];
+    echo $_SESSION['login_user'];
+    $_SESSION['pass_user'] = $_POST['passlog'];
+    echo $_SESSION['login_user'];
+    $_SESSION['id_user'] = $row['id_penyewa'];
+    echo $_SESSION['id_user'];
     header("location: masukuser.php");
 }
 }

@@ -1,0 +1,49 @@
+.user{
+    padding-right: 100px;
+}
+#search{
+        width: 200px;
+        vertical-align: middle;
+        white-space: nowrap;
+        position: relative;
+        border-radius: 5px;
+        border: none;
+        margin-left: 180px;
+        margin-top: 20px;
+        
+}
+
+button{
+    width: 70px;
+    border-radius: 5px;
+    height: 30px;
+    background-color: #5bc0de;
+    color: white;
+    border-color: #5bc0de;
+}
+.oke {
+    background-color: #5bc0de;
+    color: #5bc0de;
+}
+.oke p{
+ margin-left: 500px;
+ margin-top: 15px;
+ widows: 30px;
+}
+.oke h3{
+    margin-left: 10px;
+    width: 500px;
+    color: white;
+}
+.oke h4{
+    color: #5bc0de;
+}
+.e button{
+    width: 80px;
+    background-color: rgb(38, 0, 255);
+    color: white;
+    border-color: peachpuff;
+}
+.warna_tulisan{
+    color: white !important;
+}

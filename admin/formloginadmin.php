@@ -1,3 +1,17 @@
+<?php
+session_name("verify");
+session_start();
+if(isset($_SESSION['login_user'])){
+    $userlogin = $_SESSION['login_user'];
+    if ($userlogin != "admin")
+    {
+        header("location: ../masukuser.php");
+    }
+    else{
+        header("location: masukadmin.php");
+    }
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +45,7 @@
             <label>Password Admin</label><br>
             <input type="password" name="passlog" id="passlog"><br>
             <button id="masukadmin" name="masukadmin">Login</button>
-			<p> 
+			      <p> 
               <a href="../formloginuser.php">Masuk sebagai User</a> &nbsp &nbsp &nbsp &nbsp <a href="../index.php">Home</a>
             </p>
         </form>

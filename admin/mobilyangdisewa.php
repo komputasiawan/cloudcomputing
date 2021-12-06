@@ -1,9 +1,17 @@
 <?php
 session_name("verify");
 session_start();
+if(isset($_SESSION['login_user'])){
+    $userlogin = $_SESSION['login_user'];
+    if ($userlogin != "admin")
+    {
+        header("location: ../masukuser.php");
+    }
+}
+
 if (isset($_SESSION['login_user']) == '')
 {
-	header("location: ../formloginuser.php");
+	header("location: formloginadmin.php");
 }
 require_once("../koneksi.php");
 $stmt = $pdo_conn->prepare("SELECT * FROM penyewaan JOIN mobil JOIN user ORDER BY tgl_sewa");
@@ -15,6 +23,10 @@ $result = $stmt->fetchAll();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Pesanan</title>
+
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/png">
+    
     <meta name="keywords" content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.">
     <meta name="description" content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.">
   
@@ -43,7 +55,7 @@ $result = $stmt->fetchAll();
     <div class="container-fluid d">
         <div class="container">
         <?php
-    $stmt_mobil = $pdo_conn->prepare("SELECT * FROM penyewaan JOIN user ORDER BY tgl_sewa");
+    $stmt_mobil = $pdo_conn->prepare("SELECT * FROM penyewaan LEFT JOIN user ON penyewaan.penyewa=user.id_penyewa LEFT JOIN admin ON penyewaan.pemilik=admin.id_admin WHERE pemilik='1'");
     $stmt_mobil->execute();
     $result_mobil = $stmt_mobil->fetchAll();
   ?>
@@ -55,7 +67,7 @@ $result = $stmt->fetchAll();
 				<div class="col-md-4" data-aos="slide-up">
 					<div class="card view zoom">
 					  	<div class="card-body">
-						  <h4 class="card-title"><?php echo $row["id_penyewa"]; ?></h4>
+						  <h4 class="card-title">Pemesan : <?php echo $row["nama_penyewa"]; ?></h4>
 					    	<ul class="list-group list-group-flush">
                 <li class="list-group-item">Tanggal Sewa : <?php echo $row["tgl_sewa"]; ?></li>
                   <li class="list-group-item">Tanggal Kembali : <?php echo $row["tgl_kembali"]; ?></li>

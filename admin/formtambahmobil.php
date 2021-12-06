@@ -94,7 +94,7 @@ a,a:hover,a:visited,a:active{
                         <input type="text" name="deskripsi" required placeholder="Deskripsi" />
                     </div>
                     <div class="form-group">
-                        <small style="align: left; color:grey;">Tambahkan Foto Mobil</small><br><br>
+                        <small style="color:grey;">Tambahkan Foto Mobil</small><br><br>
                         <input type="file" name="foto" required/>
                     </div>
                         <input type="submit" class="btn btn-block btn-custom-pink" value="TAMBAH" name="tambahmobil"/>
